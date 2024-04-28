@@ -1,0 +1,58 @@
+global:
+  ingress:
+    enabled: true
+    className: nginx
+    host: "camunda.local"
+  identity:
+    auth:
+      publicIssuerUrl: "https://camunda.local/auth/realms/camunda-platform"
+      enabled: true
+      operate:
+        redirectUrl: "http://camunda.local/operate"
+      tasklist:
+        redirectUrl: "http://camunda.local/tasklist"
+      optimize:
+        redirectUrl: "http://camunda.local/optimize"
+
+identity:
+  fullURL: http://camunda.local/identity
+  contextPath: "/identity"
+  enabled: true
+
+optimize:
+  enabled: false
+
+operate:
+  contextPath: "/operate"
+
+tasklist:
+  contextPath: "/tasklist"
+
+# Reduce for Zeebe and Gateway the configured replicas and with that the required resources
+# to get it running locally
+zeebe:
+  clusterSize: 1
+  partitionCount: 1
+  replicationFactor: 1
+  pvcSize: 10Gi
+
+zeebeGateway:
+  replicas: 1
+  ingress:
+    enabled: true
+    className: nginx
+    host: "zeebe.camunda.local"
+
+connectors:
+  enabled: true
+  inbound:
+    mode: disabled
+
+elasticsearch:
+  master:
+    replicaCount: 1
+    # Request smaller persistent volumes.
+    persistence:
+      size: 15Gi
+
+
