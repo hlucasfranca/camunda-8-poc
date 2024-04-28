@@ -6,7 +6,8 @@
 - kubectl;
 - minikube;
 - helm;
-- mkcert.
+- mkcert;
+- k9s (optional).
 
 ## Starting minikube
 
@@ -43,6 +44,8 @@ helm repo update
 helm install camunda-platform camunda/camunda-platform --version 10.0.2 -f helm/camunda-platform-core-kind-values.yaml
 ```
 
+![identity](images/k9s.png)
+
 ## Local certificate configuration
 
 ```bash
@@ -71,7 +74,6 @@ kubectl -n ingress-nginx get deployment ingress-nginx-controller -o yaml | grep 
 ## Register the SimpleWorker on Identity
 
 [https://camunda.local/identity](https://camunda.local/identity)
-
 
 ![identity](images/identity.png)
 
