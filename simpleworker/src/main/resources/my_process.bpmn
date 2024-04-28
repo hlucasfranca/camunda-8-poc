@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1629bfl" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <bpmn:process id="myProcess" name="My Process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0s7g0gu</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0s7g0gu" sourceRef="StartEvent_1" targetRef="Activity_183opp2" />
+    <bpmn:sequenceFlow id="Flow_11filmo" sourceRef="Activity_183opp2" targetRef="Activity_1uii46b" />
+    <bpmn:serviceTask id="Activity_1uii46b" name="Test Worker">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="testing" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_11filmo</bpmn:incoming>
+      <bpmn:outgoing>Flow_1woarlr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0uxi2vt">
+      <bpmn:incoming>Flow_0qr20dx</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1woarlr" sourceRef="Activity_1uii46b" targetRef="Activity_0nvwwjq" />
+    <bpmn:sequenceFlow id="Flow_0qr20dx" sourceRef="Activity_0nvwwjq" targetRef="Event_0uxi2vt" />
+    <bpmn:task id="Activity_183opp2" name="Do nothing">
+      <bpmn:incoming>Flow_0s7g0gu</bpmn:incoming>
+      <bpmn:outgoing>Flow_11filmo</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:userTask id="Activity_0nvwwjq" name="Done">
+      <bpmn:incoming>Flow_1woarlr</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qr20dx</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="myProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0uxi2vt_di" bpmnElement="Event_0uxi2vt">
+        <dc:Bounds x="882" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1caj6nl_di" bpmnElement="Activity_183opp2">
+        <dc:Bounds x="284" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0bbf51t_di" bpmnElement="Activity_1uii46b">
+        <dc:Bounds x="485" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16k9oag_di" bpmnElement="Activity_0nvwwjq">
+        <dc:Bounds x="686" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0s7g0gu_di" bpmnElement="Flow_0s7g0gu">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="284" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11filmo_di" bpmnElement="Flow_11filmo">
+        <di:waypoint x="384" y="120" />
+        <di:waypoint x="485" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1woarlr_di" bpmnElement="Flow_1woarlr">
+        <di:waypoint x="585" y="120" />
+        <di:waypoint x="686" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qr20dx_di" bpmnElement="Flow_0qr20dx">
+        <di:waypoint x="786" y="120" />
+        <di:waypoint x="882" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

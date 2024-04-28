@@ -1,0 +1,33 @@
+server:
+  port: 10100
+
+camunda:
+  client:
+    mode: oidc
+    auth:
+      client-id: teste
+      client-secret: Bm5pl6xtxCgG7NpbGLYxkP9PLnsUhIYn
+      oidc-type: keycloak
+      issuer: https://camunda.local/auth/realms/camunda-platform
+    zeebe:
+      enabled: true
+      gateway-url: http://zeebe.camunda.local:80
+      base-url: http://zeebe.camunda.local:80
+      prefer-rest-over-grpc: false
+      audience: zeebe-api
+    operate:
+      enabled: true
+      base-url: http://camunda.local/operate
+      audience: operate-api
+    tasklist:
+      enabled: true
+      base-url: http://camunda.local/tasklist
+      audience: tasklist-api
+    optimize:
+      enabled: true
+      base-url: http://camunda.local/optimize
+      audience: optimize-api
+    identity:
+      enabled: true
+      base-url: http://camunda.local/identity
+      audience: identity-api
