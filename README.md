@@ -68,6 +68,22 @@ minikube addons enable ingress
 # Verify if custom certificate was enabled
 kubectl -n ingress-nginx get deployment ingress-nginx-controller -o yaml | grep "kube-system" - --default-ssl-certificate=kube-system/mkcert
 ```
+## Register the SimpleWorker on Identity
+
+[https://camunda.local/identity](https://camunda.local/identity)
+
+
+![identity](images/identity.png)
+
+![identity](images/identity-2.png)
+
+![identity](images/identity-3.png)
+
+![identity](images/identity-4.png)
+
+## Copy the credentials to the spring boot app
+
+![worker](images/worker.png)
 
 ## Opening the Operate’s page
 
