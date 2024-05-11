@@ -36,11 +36,12 @@ zeebe:
   replicationFactor: 1
   pvcSize: 10Gi
 
-zeebe-gateway:  
+zeebeGateway:  
   ingress:
-    enabled: true
-    className: nginx
-    host: "zeebe.camunda.local"
+    grpc:
+      enabled: true
+      className: nginx
+      host: "zeebe.camunda.local"
   replicas: 1
 
 connectors:
@@ -56,3 +57,6 @@ elasticsearch:
       size: 15Gi
 
 
+identityKeycloak:
+  ingress:
+    enabled: true

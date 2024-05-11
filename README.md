@@ -41,7 +41,7 @@ helm repo update
 ## Installing Camunda 8 using helm
 
 ```bash
-helm install camunda-platform camunda/camunda-platform --version 10.0.2 -f helm/camunda-platform-core-kind-values.yaml
+helm install camunda-platform camunda/camunda-platform --version 10.0.4 -f helm/camunda-platform-core-kind-values.yaml
 ```
 
 ![identity](images/k9s.png)
@@ -117,3 +117,15 @@ curl --request POST --url 'http://localhost:10100/start?id=myProcess'
 ![Operate](images/operate-2.png)
 
 ![Operate](images/operate-3.png)
+
+## Opening keycloak
+
+```bash
+kubectl port-forward svc/camunda-platform-keycloak  18080:80
+```
+
+Or:
+
+```bash
+https://camunda.local/auth
+```
